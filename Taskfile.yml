@@ -5,7 +5,7 @@ tasks:
     desc: format code
     cmds:
       - go mod tidy
-      - gci write -s standard -s default -s "prefix(github.com/utkuozdemir/nvidia_gpu_exporter)" .
+      - gci write -s standard -s default -s "prefix(github.com/utkuozdemir/boss_apu_exporter)" .
       - gofumpt -w -l .
       - markdownlint --fix **/*.md
       - shfmt --write **/*.sh

@@ -10,9 +10,9 @@ fi
 
 echo "Detected systemd as init system, proceeding"
 
-useradd -r nvidia_gpu_exporter -s /bin/false || true
+useradd -r boss_apu_exporter -s /bin/false || true
 
 systemctl daemon-reload
 
-systemctl enable nvidia_gpu_exporter.service
-systemctl restart nvidia_gpu_exporter.service
+systemctl enable boss_apu_exporter.service
+systemctl restart boss_apu_exporter.service

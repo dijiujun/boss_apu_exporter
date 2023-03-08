@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-COPY nvidia_gpu_exporter /usr/bin/nvidia_gpu_exporter
+COPY boss_apu_exporter /usr/bin/boss_apu_exporter
 
 EXPOSE 9835
-ENTRYPOINT ["/usr/bin/nvidia_gpu_exporter"]
+ENTRYPOINT ["/usr/bin/boss_apu_exporter"]

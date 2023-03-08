@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/utkuozdemir/nvidia_gpu_exporter/internal/util"
+	"github.com/dijiujun/boss_apu_exporter/internal/util"
 )
 
 func TestToSnakeCase(t *testing.T) {

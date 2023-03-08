@@ -19,14 +19,14 @@ import (
 	webflag "github.com/prometheus/exporter-toolkit/web/kingpinflag"
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/utkuozdemir/nvidia_gpu_exporter/internal/exporter"
+	"github.com/dijiujun/boss_apu_exporter/internal/exporter"
 )
 
 const (
 	redirectPageTemplate = `<html lang="en">
-<head><title>Nvidia GPU Exporter</title></head>
+<head><title>BlueOcean APU Exporter</title></head>
 <body>
-<h1>Nvidia GPU Exporter</h1>
+<h1>BlueOcean APU Exporter</h1>
 <p><a href="%s">Metrics</a></p>
 </body>
 </html>
@@ -56,25 +56,25 @@ func main() {
 			Default("60s").Duration()
 		metricsPath = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics.").
 				Default("/metrics").String()
-		nvidiaSmiCommand = kingpin.Flag("nvidia-smi-command",
-			"Path or command to be used for the nvidia-smi executable").
-			Default(exporter.DefaultNvidiaSmiCommand).String()
+		bossSmiCommand = kingpin.Flag("boss-smi-command",
+			"Path or command to be used for the boss-smi executable").
+			Default(exporter.DefaultBossSmiCommand).String()
 		qFields = kingpin.Flag("query-field-names",
 			fmt.Sprintf("Comma-separated list of the query fields. "+
-				"You can find out possible fields by running `nvidia-smi --help-query-gpus`. "+
+				"You can find out possible fields by running `boss-smi --help-query-gpus`. "+
 				"The value `%s` will automatically detect the fields to query.", exporter.DefaultQField)).
 			Default(exporter.DefaultQField).String()
 	)
 
 	promlogConfig := &promlog.Config{}
 	flag.AddFlags(kingpin.CommandLine, promlogConfig)
-	kingpin.Version(version.Print("nvidia_gpu_exporter"))
+	kingpin.Version(version.Print("boss_apu_exporter"))
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
 
 	logger := promlog.New(promlogConfig)
 
-	exp, err := exporter.New(exporter.DefaultPrefix, *nvidiaSmiCommand, *qFields, logger)
+	exp, err := exporter.New(exporter.DefaultPrefix, *bossSmiCommand, *qFields, logger)
 	if err != nil {
 		_ = level.Error(logger).Log("msg", "Error on creating exporter", "err", err)
 
@@ -82,7 +82,7 @@ func main() {
 	}
 
 	prometheus.MustRegister(exp)
-	prometheus.MustRegister(version.NewCollector("nvidia_gpu_exporter"))
+	prometheus.MustRegister(version.NewCollector("boss_apu_exporter"))
 
 	rootHandler := NewRootHandler(logger, *metricsPath)
 	http.Handle("/", rootHandler)

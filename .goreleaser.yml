@@ -4,9 +4,9 @@ before:
     - go mod download
 
 builds:
-  - id: nvidia_gpu_exporter
-    main: ./cmd/nvidia_gpu_exporter
-    binary: nvidia_gpu_exporter
+  - id: boss_apu_exporter
+    main: ./cmd/boss_apu_exporter
+    binary: boss_apu_exporter
     ldflags:
       - -s -w
       - -X github.com/prometheus/common/version.Version={{.Version}}
@@ -42,7 +42,7 @@ builds:
         goarch: "386"
 
 archives:
-  - id: nvidia_gpu_exporter-archive
+  - id: boss_apu_exporter-archive
     rlcp: true
     name_template: >-
       {{ .ProjectName }}_
@@ -55,7 +55,7 @@ archives:
       {{- with .Mips }}_{{ . }}{{ end }}
       {{- if not (eq .Amd64 "v1") }}{{ .Amd64 }}{{ end }}
     builds:
-      - nvidia_gpu_exporter
+      - boss_apu_exporter
     format_overrides:
       - goos: windows
         format: zip
@@ -63,13 +63,13 @@ archives:
       - LICENSE
 
 nfpms:
-  - id: nvidia_gpu_exporter
-    package_name: nvidia-gpu-exporter
+  - id: boss_apu_exporter
+    package_name: boss-apu-exporter
     bindir: /usr/bin
-    vendor: Utku Ozdemir
-    homepage: https://github.com/utkuozdemir/nvidia_gpu_exporter
+    vendor: Blue Ocean
+    homepage: https://github.com/dijiujun/boss_apu_exporter
     license: MIT
-    maintainer: Utku Ozdemir <uoz@protonmail.com>
+    maintainer: Joseph Di <joseph.di@blueoceansmart.com>
     section: misc
     description: |-
       Nvidia GPU exporter for prometheus.

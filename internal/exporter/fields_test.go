@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/utkuozdemir/nvidia_gpu_exporter/internal/exporter"
+	"github.com/dijiujun/boss_apu_exporter/internal/exporter"
 )
 
 var (
@@ -76,10 +76,10 @@ func TestParseAutoQFields(t *testing.T) {
 		return nil
 	}
 
-	fields, err := exporter.ParseAutoQFields("nvidia-smi", command)
+	fields, err := exporter.ParseAutoQFields("boss-smi", command)
 
 	assert.Len(t, capturedCmd.Args, 2)
-	assert.Equal(t, capturedCmd.Args[0], "nvidia-smi")
+	assert.Equal(t, capturedCmd.Args[0], "boss-smi")
 	assert.Equal(t, capturedCmd.Args[1], "--help-query-gpu")
 
 	assert.NoError(t, err)

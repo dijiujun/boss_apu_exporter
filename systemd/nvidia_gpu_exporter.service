@@ -1,16 +1,16 @@
 [Unit]
-Description=Nvidia GPU Exporter
+Description=BlueOcean APU Exporter
 After=network-online.target
 
 [Service]
 Type=simple
 
-User=nvidia_gpu_exporter
-Group=nvidia_gpu_exporter
+User=boss_apu_exporter
+Group=boss_apu_exporter
 
-ExecStart=/usr/bin/nvidia_gpu_exporter
+ExecStart=/usr/bin/boss_apu_exporter
 
-SyslogIdentifier=nvidia_gpu_exporter
+SyslogIdentifier=boss_apu_exporter
 
 Restart=always
 RestartSec=1

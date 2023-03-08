@@ -1,4 +1,4 @@
-module github.com/utkuozdemir/nvidia_gpu_exporter
+module github.com/dijiujun/boss_apu_exporter
 
 // renovate: go
 go 1.20

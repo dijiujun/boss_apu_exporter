@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-systemctl stop nvidia_gpu_exporter.service || true
-systemctl disable nvidia_gpu_exporter.service || true
+systemctl stop boss_apu_exporter.service || true
+systemctl disable boss_apu_exporter.service || true
 
 systemctl daemon-reload

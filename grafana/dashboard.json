@@ -60,7 +60,7 @@
       }
     ]
   },
-  "description": "Nvidia GPU Metrics based on the prometheus metrics from github.com/utkuozdemir/nvidia_gpu_exporter",
+  "description": "BlueOcean APU Metrics based on the prometheus metrics from github.com/dijiujun/boss_apu_exporter",
   "editable": true,
   "gnetId": 14574,
   "graphTooltip": 0,
@@ -70,7 +70,7 @@
   "panels": [
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "The official product name of the GPU. This is an alphanumeric string. For all products.",
+      "description": "The official product name of the APU. This is an alphanumeric string. For all products.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -117,7 +117,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_gpu_info{uuid=\"$gpu\"}",
+          "expr": "boss_smi_gpu_info{uuid=\"$gpu\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{name}}",
@@ -131,7 +131,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "The current performance state for the GPU. States range from P0 (maximum performance) to P12 (minimum performance).",
+      "description": "The current performance state for the APU. States range from P0 (maximum performance) to P12 (minimum performance).",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -187,7 +187,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_pstate{uuid=\"$gpu\"}",
+          "expr": "boss_smi_pstate{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -200,7 +200,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "Percent of time over the past sample period during which one or more kernels was executing on the GPU.\nThe sample period may be between 1 second and 1/6 second depending on the product.",
+      "description": "Percent of time over the past sample period during which one or more kernels was executing on the APU.\nThe sample period may be between 1 second and 1/6 second depending on the product.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -253,13 +253,13 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_gpu_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_utilization_gpu_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
         }
       ],
-      "title": "GPU Utilization %",
+      "title": "APU Utilization %",
       "transformations": [],
       "type": "gauge"
     },
@@ -318,7 +318,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\"} / nvidia_smi_power_default_limit_watts{uuid=\"$gpu\"}",
+          "expr": "boss_smi_power_draw_watts{uuid=\"$gpu\"} / boss_smi_power_default_limit_watts{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -382,7 +382,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_fan_speed_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_fan_speed_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -393,7 +393,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "Core GPU temperature. in degrees C.",
+      "description": "Core APU temperature. in degrees C.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -446,7 +446,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_temperature_gpu{uuid=\"$gpu\"}",
+          "expr": "boss_smi_temperature_gpu{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -507,7 +507,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_memory_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_utilization_memory_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -577,7 +577,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "The version of the installed NVIDIA display driver. This is an alphanumeric string.",
+      "description": "The version of the installed BlueOcean BF400 driver. This is an alphanumeric string.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -624,7 +624,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_gpu_info{uuid=\"$gpu\"}",
+          "expr": "boss_smi_gpu_info{uuid=\"$gpu\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{driver_version}}",
@@ -638,7 +638,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "The BIOS of the GPU board.",
+      "description": "The BIOS of the APU board.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -685,7 +685,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_gpu_info{uuid=\"$gpu\"}",
+          "expr": "boss_smi_gpu_info{uuid=\"$gpu\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{vbios_version}}",
@@ -759,7 +759,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_gpu_idle{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_gpu_idle{uuid=\"$gpu\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "Idle",
@@ -767,7 +767,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_hw_thermal_slowdown{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "HW Thermal Slowdown",
@@ -775,7 +775,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_sw_power_cap{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_sw_power_cap{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "SW Power Cap",
@@ -783,7 +783,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_applications_clocks_setting{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_applications_clocks_setting{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "App Clocks Setting",
@@ -791,7 +791,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_hw_power_brake_slowdown{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "HW Power Brake",
@@ -799,7 +799,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_sw_thermal_slowdown{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "SW Thermal Slowdown",
@@ -807,7 +807,7 @@
         },
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_throttle_reasons_sync_boost{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_throttle_reasons_sync_boost{uuid=\"$gpu\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "Sync Boost",
@@ -872,13 +872,13 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\"} / nvidia_smi_clocks_max_graphics_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\"} / boss_smi_clocks_max_graphics_clock_hz{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "GPU Clock Speed %",
+      "title": "APU Clock Speed %",
       "type": "gauge"
     },
     {
@@ -936,7 +936,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\"} / nvidia_smi_clocks_max_memory_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\"} / boss_smi_clocks_max_memory_clock_hz{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -947,7 +947,7 @@
     },
     {
       "datasource": "${DS_PROMETHEUS}",
-      "description": "Total memory allocated by active contexts / Total installed GPU memory.",
+      "description": "Total memory allocated by active contexts / Total installed APU memory.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1000,7 +1000,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_memory_used_bytes{uuid=\"$gpu\"} / nvidia_smi_memory_total_bytes{uuid=\"$gpu\"}",
+          "expr": "boss_smi_memory_used_bytes{uuid=\"$gpu\"} / boss_smi_memory_total_bytes{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1064,7 +1064,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_memory_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_utilization_memory_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1079,7 +1079,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_PROMETHEUS}",
-      "description": "Percent of time over the past sample period during which one or more kernels was executing on the GPU.\nThe sample period may be between 1 second and 1/6 second depending on the product.",
+      "description": "Percent of time over the past sample period during which one or more kernels was executing on the APU.\nThe sample period may be between 1 second and 1/6 second depending on the product.",
       "fieldConfig": {
         "defaults": {
           "unit": "percentunit"
@@ -1123,7 +1123,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_gpu_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_utilization_gpu_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1152,7 +1152,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "GPU Utilization %",
+      "title": "APU Utilization %",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1241,7 +1241,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_memory_used_bytes{uuid=\"$gpu\"}",
+          "expr": "boss_smi_memory_used_bytes{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1296,7 +1296,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_PROMETHEUS}",
-      "description": "Core GPU temperature. in degrees C.",
+      "description": "Core APU temperature. in degrees C.",
       "fieldConfig": {
         "defaults": {
           "unit": "celsius"
@@ -1340,7 +1340,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_temperature_gpu{uuid=\"$gpu\"}",
+          "expr": "boss_smi_temperature_gpu{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1458,7 +1458,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\"}",
+          "expr": "boss_smi_power_draw_watts{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1557,7 +1557,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_fan_speed_ratio{uuid=\"$gpu\"}",
+          "expr": "boss_smi_fan_speed_ratio{uuid=\"$gpu\"}",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1675,7 +1675,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{uuid}}",
@@ -1775,7 +1775,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_video_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_video_clock_hz{uuid=\"$gpu\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{uuid}}",
@@ -1875,7 +1875,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_sm_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_sm_clock_hz{uuid=\"$gpu\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{uuid}}",
@@ -1975,7 +1975,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\"}",
+          "expr": "boss_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{uuid}}",
@@ -2030,9 +2030,9 @@
   "schemaVersion": 30,
   "style": "dark",
   "tags": [
-    "nvidia",
-    "nvidia-smi",
-    "nvidia_gpu_exporter",
+    "boss",
+    "boss-smi",
+    "boss_apu_exporter",
     "prometheus"
   ],
   "templating": {
@@ -2041,17 +2041,17 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_PROMETHEUS}",
-        "definition": "label_values(nvidia_smi_index, uuid)",
+        "definition": "label_values(boss_smi_index, uuid)",
         "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
-        "label": "GPU",
+        "label": "APU",
         "multi": false,
         "name": "gpu",
         "options": [],
         "query": {
-          "query": "label_values(nvidia_smi_index, uuid)",
+          "query": "label_values(boss_smi_index, uuid)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2071,7 +2071,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Nvidia GPU Metrics",
+  "title": "boss APU Metrics",
   "uid": "vlvPlrgnk",
   "version": 6
 }

@@ -12,7 +12,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/utkuozdemir/nvidia_gpu_exporter/internal/exporter"
+	"github.com/dijiujun/boss_apu_exporter/internal/exporter"
 )
 
 const (
@@ -304,9 +304,9 @@ func TestParseQueryFields(t *testing.T) {
 	t.SkipNow()
 	t.Parallel()
 
-	nvidiaSmiCommand := "nvidia-smi"
+	bossSmiCommand := "boss-smi"
 
-	qFields, err := exporter.ParseAutoQFields(nvidiaSmiCommand, nil)
+	qFields, err := exporter.ParseAutoQFields(bossSmiCommand, nil)
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
 		os.Exit(1)

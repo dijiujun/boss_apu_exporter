@@ -8,9 +8,9 @@ linters:
 
 linters-settings:
   gci:
-    local-prefixes: github.com/utkuozdemir/nvidia_gpu_exporter
+    local-prefixes: github.com/dijiujun/boss_apu_exporter
   goimports:
-    local-prefixes: github.com/utkuozdemir/nvidia_gpu_exporter
+    local-prefixes: github.com/dijiujun/boss_apu_exporter
   goconst:
     ignore-tests: true
   gomoddirectives:
