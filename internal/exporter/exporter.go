@@ -28,7 +28,7 @@ type runCmd func(cmd *exec.Cmd) error
 
 const (
 	DefaultPrefix           = "boss_smi"
-	DefaultBossSmiCommand = "boss-smi"
+	DefaultBossSmiCommand   = "boss-smi"
 
 	floatBitSize = 64
 )
@@ -67,7 +67,7 @@ type GPUExporter struct {
 	prefix                string
 	qFields               []QField
 	qFieldToMetricInfoMap map[QField]MetricInfo
-	bossSmiCommand      string
+	bossSmiCommand        string
 	failedScrapesTotal    prometheus.Counter
 	exitCode              prometheus.Gauge
 	gpuInfoDesc           *prometheus.Desc
@@ -86,7 +86,7 @@ func New(prefix string, bossSmiCommand string, qFieldsRaw string, logger log.Log
 	infoLabels := getLabels(requiredFields)
 	exporter := GPUExporter{
 		prefix:                prefix,
-		bossSmiCommand:      bossSmiCommand,
+		bossSmiCommand:        bossSmiCommand,
 		qFields:               qFieldsOrdered,
 		qFieldToMetricInfoMap: qFieldToMetricInfoMap,
 		logger:                logger,

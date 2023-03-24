@@ -72,21 +72,21 @@ nfpms:
     maintainer: Joseph Di <joseph.di@blueoceansmart.com>
     section: misc
     description: |-
-      Nvidia GPU exporter for prometheus.
-      This is a simple exporter that uses `nvidia-smi(.exe)` binary to collect, 
+      BlueOcean APU exporter for prometheus.
+      This is a simple exporter that uses `boss-smi(.exe)` binary to collect, 
       parse and export metrics.
     formats:
       - deb
       - rpm
     contents:
-      - src: ./systemd/nvidia_gpu_exporter.service
-        dst: /usr/lib/systemd/system/nvidia_gpu_exporter.service
+      - src: ./systemd/boss_apu_exporter.service
+        dst: /usr/lib/systemd/system/boss_apu_exporter.service
         file_info:
           owner: root
           group: root
           mode: 0644
       - src: ./LICENSE
-        dst: /usr/share/doc/nvidia-gpu-exporter/copyright
+        dst: /usr/share/doc/boss-apu-exporter/copyright
         file_info:
           owner: root
           group: root
