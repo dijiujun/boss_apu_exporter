@@ -1,0 +1,19 @@
+[Unit]
+Description=BlueOcean APU Exporter
+After=network-online.target
+
+[Service]
+Type=simple
+
+User=root
+Group=root
+
+ExecStart=/usr/local/boss_apu_exporter/boss_apu_exporter
+
+SyslogIdentifier=boss_apu_exporter
+
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
