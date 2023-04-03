@@ -1,11 +1,279 @@
-# Metrics
-
-This is an example output of the returned metrics.
-
-Note that when `AUTO` query fields mode is used (it is the default),
-the exporter will discover new fields and expose them on a best-effort basis.
-
-```text
+# HELP boss_apu_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, goversion from which boss_apu_exporter was built, and the goos and goarch for the build.
+# TYPE boss_apu_exporter_build_info gauge
+boss_apu_exporter_build_info{branch="",goarch="amd64",goos="linux",goversion="go1.18.1",revision="unknown",version=""} 1
+# HELP boss_smi_board_id board_id
+# TYPE boss_smi_board_id gauge
+boss_smi_board_id{cardid="0"} 1001
+# HELP boss_smi_card_index card_index
+# TYPE boss_smi_card_index gauge
+boss_smi_card_index{cardid="0"} 0
+# HELP boss_smi_card_temp card_temp
+# TYPE boss_smi_card_temp gauge
+boss_smi_card_temp{cardid="0"} 37
+# HELP boss_smi_command_exit_code Exit code of the last scrape command
+# TYPE boss_smi_command_exit_code gauge
+boss_smi_command_exit_code 0
+# HELP boss_smi_cpld_version cpld_version
+# TYPE boss_smi_cpld_version gauge
+boss_smi_cpld_version{cardid="0"} 1
+# HELP boss_smi_die0_bxlink_temp die0_bxlink_temp
+# TYPE boss_smi_die0_bxlink_temp gauge
+boss_smi_die0_bxlink_temp{cardid="0"} 40.71
+# HELP boss_smi_die0_cpu_clock die0_cpu_clock
+# TYPE boss_smi_die0_cpu_clock gauge
+boss_smi_die0_cpu_clock{cardid="0"} 1500
+# HELP boss_smi_die0_cpu_temp die0_cpu_temp
+# TYPE boss_smi_die0_cpu_temp gauge
+boss_smi_die0_cpu_temp{cardid="0"} 36.72
+# HELP boss_smi_die0_cpu_usage_rate die0_cpu_usage_rate
+# TYPE boss_smi_die0_cpu_usage_rate gauge
+boss_smi_die0_cpu_usage_rate{cardid="0"} 0.02
+# HELP boss_smi_die0_ddr_clock die0_ddr_clock
+# TYPE boss_smi_die0_ddr_clock gauge
+boss_smi_die0_ddr_clock{cardid="0"} 4193
+# HELP boss_smi_die0_ddr_temp die0_ddr_temp
+# TYPE boss_smi_die0_ddr_temp gauge
+boss_smi_die0_ddr_temp{cardid="0"} 37.05
+# HELP boss_smi_die0_decoder_temp die0_decoder_temp
+# TYPE boss_smi_die0_decoder_temp gauge
+boss_smi_die0_decoder_temp{cardid="0"} 36.61
+# HELP boss_smi_die0_gpgpu_temp die0_gpgpu_temp
+# TYPE boss_smi_die0_gpgpu_temp gauge
+boss_smi_die0_gpgpu_temp{cardid="0"} 38.88
+# HELP boss_smi_die0_gpu_clock die0_gpu_clock
+# TYPE boss_smi_die0_gpu_clock gauge
+boss_smi_die0_gpu_clock{cardid="0"} 1020
+# HELP boss_smi_die0_gpu_mem_free die0_gpu_mem_free
+# TYPE boss_smi_die0_gpu_mem_free gauge
+boss_smi_die0_gpu_mem_free{cardid="0"} 1.5703923e+07
+# HELP boss_smi_die0_gpu_mem_total die0_gpu_mem_total
+# TYPE boss_smi_die0_gpu_mem_total gauge
+boss_smi_die0_gpu_mem_total{cardid="0"} 1.572864e+07
+# HELP boss_smi_die0_gpu_mem_used die0_gpu_mem_used
+# TYPE boss_smi_die0_gpu_mem_used gauge
+boss_smi_die0_gpu_mem_used{cardid="0"} 24716
+# HELP boss_smi_die0_gpu_usage_rate die0_gpu_usage_rate
+# TYPE boss_smi_die0_gpu_usage_rate gauge
+boss_smi_die0_gpu_usage_rate{cardid="0"} 0
+# HELP boss_smi_die0_mem_free die0_mem_free
+# TYPE boss_smi_die0_mem_free gauge
+boss_smi_die0_mem_free{cardid="0"} 6.056016e+06
+# HELP boss_smi_die0_mem_total die0_mem_total
+# TYPE boss_smi_die0_mem_total gauge
+boss_smi_die0_mem_total{cardid="0"} 6.539488e+06
+# HELP boss_smi_die0_mem_used die0_mem_used
+# TYPE boss_smi_die0_mem_used gauge
+boss_smi_die0_mem_used{cardid="0"} 483472
+# HELP boss_smi_die0_phy_mem die0_phy_mem
+# TYPE boss_smi_die0_phy_mem gauge
+boss_smi_die0_phy_mem{cardid="0"} 3.3554432e+07
+# HELP boss_smi_die0_shutdown_temp die0_shutdown_temp
+# TYPE boss_smi_die0_shutdown_temp gauge
+boss_smi_die0_shutdown_temp{cardid="0"} 110
+# HELP boss_smi_die0_slowdown_temp die0_slowdown_temp
+# TYPE boss_smi_die0_slowdown_temp gauge
+boss_smi_die0_slowdown_temp{cardid="0"} 100
+# HELP boss_smi_die0_sys_temp die0_sys_temp
+# TYPE boss_smi_die0_sys_temp gauge
+boss_smi_die0_sys_temp{cardid="0"} 40.71
+# HELP boss_smi_die1_bxlink_temp die1_bxlink_temp
+# TYPE boss_smi_die1_bxlink_temp gauge
+boss_smi_die1_bxlink_temp{cardid="0"} 37.05
+# HELP boss_smi_die1_cpu_clock die1_cpu_clock
+# TYPE boss_smi_die1_cpu_clock gauge
+boss_smi_die1_cpu_clock{cardid="0"} 1500
+# HELP boss_smi_die1_cpu_temp die1_cpu_temp
+# TYPE boss_smi_die1_cpu_temp gauge
+boss_smi_die1_cpu_temp{cardid="0"} 36.56
+# HELP boss_smi_die1_cpu_usage_rate die1_cpu_usage_rate
+# TYPE boss_smi_die1_cpu_usage_rate gauge
+boss_smi_die1_cpu_usage_rate{cardid="0"} 0.01
+# HELP boss_smi_die1_ddr_clock die1_ddr_clock
+# TYPE boss_smi_die1_ddr_clock gauge
+boss_smi_die1_ddr_clock{cardid="0"} 4193
+# HELP boss_smi_die1_ddr_temp die1_ddr_temp
+# TYPE boss_smi_die1_ddr_temp gauge
+boss_smi_die1_ddr_temp{cardid="0"} 36.83
+# HELP boss_smi_die1_decoder_temp die1_decoder_temp
+# TYPE boss_smi_die1_decoder_temp gauge
+boss_smi_die1_decoder_temp{cardid="0"} 35.97
+# HELP boss_smi_die1_gpgpu_temp die1_gpgpu_temp
+# TYPE boss_smi_die1_gpgpu_temp gauge
+boss_smi_die1_gpgpu_temp{cardid="0"} 37.31
+# HELP boss_smi_die1_gpu_clock die1_gpu_clock
+# TYPE boss_smi_die1_gpu_clock gauge
+boss_smi_die1_gpu_clock{cardid="0"} 1020
+# HELP boss_smi_die1_gpu_mem_free die1_gpu_mem_free
+# TYPE boss_smi_die1_gpu_mem_free gauge
+boss_smi_die1_gpu_mem_free{cardid="0"} 1.5703923e+07
+# HELP boss_smi_die1_gpu_mem_total die1_gpu_mem_total
+# TYPE boss_smi_die1_gpu_mem_total gauge
+boss_smi_die1_gpu_mem_total{cardid="0"} 1.572864e+07
+# HELP boss_smi_die1_gpu_mem_used die1_gpu_mem_used
+# TYPE boss_smi_die1_gpu_mem_used gauge
+boss_smi_die1_gpu_mem_used{cardid="0"} 24716
+# HELP boss_smi_die1_gpu_usage_rate die1_gpu_usage_rate
+# TYPE boss_smi_die1_gpu_usage_rate gauge
+boss_smi_die1_gpu_usage_rate{cardid="0"} 0
+# HELP boss_smi_die1_mem_free die1_mem_free
+# TYPE boss_smi_die1_mem_free gauge
+boss_smi_die1_mem_free{cardid="0"} 6.079552e+06
+# HELP boss_smi_die1_mem_total die1_mem_total
+# TYPE boss_smi_die1_mem_total gauge
+boss_smi_die1_mem_total{cardid="0"} 6.539488e+06
+# HELP boss_smi_die1_mem_used die1_mem_used
+# TYPE boss_smi_die1_mem_used gauge
+boss_smi_die1_mem_used{cardid="0"} 459936
+# HELP boss_smi_die1_phy_mem die1_phy_mem
+# TYPE boss_smi_die1_phy_mem gauge
+boss_smi_die1_phy_mem{cardid="0"} 3.3554432e+07
+# HELP boss_smi_die1_shutdown_temp die1_shutdown_temp
+# TYPE boss_smi_die1_shutdown_temp gauge
+boss_smi_die1_shutdown_temp{cardid="0"} 110
+# HELP boss_smi_die1_slowdown_temp die1_slowdown_temp
+# TYPE boss_smi_die1_slowdown_temp gauge
+boss_smi_die1_slowdown_temp{cardid="0"} 100
+# HELP boss_smi_die1_sys_temp die1_sys_temp
+# TYPE boss_smi_die1_sys_temp gauge
+boss_smi_die1_sys_temp{cardid="0"} 37.31
+# HELP boss_smi_die2_bxlink_temp die2_bxlink_temp
+# TYPE boss_smi_die2_bxlink_temp gauge
+boss_smi_die2_bxlink_temp{cardid="0"} 37.49
+# HELP boss_smi_die2_cpu_clock die2_cpu_clock
+# TYPE boss_smi_die2_cpu_clock gauge
+boss_smi_die2_cpu_clock{cardid="0"} 1500
+# HELP boss_smi_die2_cpu_temp die2_cpu_temp
+# TYPE boss_smi_die2_cpu_temp gauge
+boss_smi_die2_cpu_temp{cardid="0"} 35.81
+# HELP boss_smi_die2_cpu_usage_rate die2_cpu_usage_rate
+# TYPE boss_smi_die2_cpu_usage_rate gauge
+boss_smi_die2_cpu_usage_rate{cardid="0"} 0.01
+# HELP boss_smi_die2_ddr_clock die2_ddr_clock
+# TYPE boss_smi_die2_ddr_clock gauge
+boss_smi_die2_ddr_clock{cardid="0"} 4193
+# HELP boss_smi_die2_ddr_temp die2_ddr_temp
+# TYPE boss_smi_die2_ddr_temp gauge
+boss_smi_die2_ddr_temp{cardid="0"} 36.46
+# HELP boss_smi_die2_decoder_temp die2_decoder_temp
+# TYPE boss_smi_die2_decoder_temp gauge
+boss_smi_die2_decoder_temp{cardid="0"} 35
+# HELP boss_smi_die2_gpgpu_temp die2_gpgpu_temp
+# TYPE boss_smi_die2_gpgpu_temp gauge
+boss_smi_die2_gpgpu_temp{cardid="0"} 36.41
+# HELP boss_smi_die2_gpu_clock die2_gpu_clock
+# TYPE boss_smi_die2_gpu_clock gauge
+boss_smi_die2_gpu_clock{cardid="0"} 1020
+# HELP boss_smi_die2_gpu_mem_free die2_gpu_mem_free
+# TYPE boss_smi_die2_gpu_mem_free gauge
+boss_smi_die2_gpu_mem_free{cardid="0"} 1.5703923e+07
+# HELP boss_smi_die2_gpu_mem_total die2_gpu_mem_total
+# TYPE boss_smi_die2_gpu_mem_total gauge
+boss_smi_die2_gpu_mem_total{cardid="0"} 1.572864e+07
+# HELP boss_smi_die2_gpu_mem_used die2_gpu_mem_used
+# TYPE boss_smi_die2_gpu_mem_used gauge
+boss_smi_die2_gpu_mem_used{cardid="0"} 24716
+# HELP boss_smi_die2_gpu_usage_rate die2_gpu_usage_rate
+# TYPE boss_smi_die2_gpu_usage_rate gauge
+boss_smi_die2_gpu_usage_rate{cardid="0"} 0
+# HELP boss_smi_die2_mem_free die2_mem_free
+# TYPE boss_smi_die2_mem_free gauge
+boss_smi_die2_mem_free{cardid="0"} 6.079208e+06
+# HELP boss_smi_die2_mem_total die2_mem_total
+# TYPE boss_smi_die2_mem_total gauge
+boss_smi_die2_mem_total{cardid="0"} 6.539488e+06
+# HELP boss_smi_die2_mem_used die2_mem_used
+# TYPE boss_smi_die2_mem_used gauge
+boss_smi_die2_mem_used{cardid="0"} 460280
+# HELP boss_smi_die2_phy_mem die2_phy_mem
+# TYPE boss_smi_die2_phy_mem gauge
+boss_smi_die2_phy_mem{cardid="0"} 3.3554432e+07
+# HELP boss_smi_die2_shutdown_temp die2_shutdown_temp
+# TYPE boss_smi_die2_shutdown_temp gauge
+boss_smi_die2_shutdown_temp{cardid="0"} 110
+# HELP boss_smi_die2_slowdown_temp die2_slowdown_temp
+# TYPE boss_smi_die2_slowdown_temp gauge
+boss_smi_die2_slowdown_temp{cardid="0"} 100
+# HELP boss_smi_die2_sys_temp die2_sys_temp
+# TYPE boss_smi_die2_sys_temp gauge
+boss_smi_die2_sys_temp{cardid="0"} 37.49
+# HELP boss_smi_die3_bxlink_temp die3_bxlink_temp
+# TYPE boss_smi_die3_bxlink_temp gauge
+boss_smi_die3_bxlink_temp{cardid="0"} 38.51
+# HELP boss_smi_die3_cpu_clock die3_cpu_clock
+# TYPE boss_smi_die3_cpu_clock gauge
+boss_smi_die3_cpu_clock{cardid="0"} 1500
+# HELP boss_smi_die3_cpu_temp die3_cpu_temp
+# TYPE boss_smi_die3_cpu_temp gauge
+boss_smi_die3_cpu_temp{cardid="0"} 36.56
+# HELP boss_smi_die3_cpu_usage_rate die3_cpu_usage_rate
+# TYPE boss_smi_die3_cpu_usage_rate gauge
+boss_smi_die3_cpu_usage_rate{cardid="0"} 0.01
+# HELP boss_smi_die3_ddr_clock die3_ddr_clock
+# TYPE boss_smi_die3_ddr_clock gauge
+boss_smi_die3_ddr_clock{cardid="0"} 4193
+# HELP boss_smi_die3_ddr_temp die3_ddr_temp
+# TYPE boss_smi_die3_ddr_temp gauge
+boss_smi_die3_ddr_temp{cardid="0"} 37.05
+# HELP boss_smi_die3_decoder_temp die3_decoder_temp
+# TYPE boss_smi_die3_decoder_temp gauge
+boss_smi_die3_decoder_temp{cardid="0"} 36.61
+# HELP boss_smi_die3_gpgpu_temp die3_gpgpu_temp
+# TYPE boss_smi_die3_gpgpu_temp gauge
+boss_smi_die3_gpgpu_temp{cardid="0"} 37.8
+# HELP boss_smi_die3_gpu_clock die3_gpu_clock
+# TYPE boss_smi_die3_gpu_clock gauge
+boss_smi_die3_gpu_clock{cardid="0"} 1020
+# HELP boss_smi_die3_gpu_mem_free die3_gpu_mem_free
+# TYPE boss_smi_die3_gpu_mem_free gauge
+boss_smi_die3_gpu_mem_free{cardid="0"} 1.5703923e+07
+# HELP boss_smi_die3_gpu_mem_total die3_gpu_mem_total
+# TYPE boss_smi_die3_gpu_mem_total gauge
+boss_smi_die3_gpu_mem_total{cardid="0"} 1.572864e+07
+# HELP boss_smi_die3_gpu_mem_used die3_gpu_mem_used
+# TYPE boss_smi_die3_gpu_mem_used gauge
+boss_smi_die3_gpu_mem_used{cardid="0"} 24716
+# HELP boss_smi_die3_gpu_usage_rate die3_gpu_usage_rate
+# TYPE boss_smi_die3_gpu_usage_rate gauge
+boss_smi_die3_gpu_usage_rate{cardid="0"} 0
+# HELP boss_smi_die3_mem_free die3_mem_free
+# TYPE boss_smi_die3_mem_free gauge
+boss_smi_die3_mem_free{cardid="0"} 6.080316e+06
+# HELP boss_smi_die3_mem_total die3_mem_total
+# TYPE boss_smi_die3_mem_total gauge
+boss_smi_die3_mem_total{cardid="0"} 6.539488e+06
+# HELP boss_smi_die3_mem_used die3_mem_used
+# TYPE boss_smi_die3_mem_used gauge
+boss_smi_die3_mem_used{cardid="0"} 459172
+# HELP boss_smi_die3_phy_mem die3_phy_mem
+# TYPE boss_smi_die3_phy_mem gauge
+boss_smi_die3_phy_mem{cardid="0"} 3.3554432e+07
+# HELP boss_smi_die3_shutdown_temp die3_shutdown_temp
+# TYPE boss_smi_die3_shutdown_temp gauge
+boss_smi_die3_shutdown_temp{cardid="0"} 110
+# HELP boss_smi_die3_slowdown_temp die3_slowdown_temp
+# TYPE boss_smi_die3_slowdown_temp gauge
+boss_smi_die3_slowdown_temp{cardid="0"} 100
+# HELP boss_smi_die3_sys_temp die3_sys_temp
+# TYPE boss_smi_die3_sys_temp gauge
+boss_smi_die3_sys_temp{cardid="0"} 38.51
+# HELP boss_smi_gpu_info A metric with a constant '1' value labeled by gpu card_index, soft_version, board_id, name, chip_type, apu_version, bus_id, die0_sn, die1_sn, die2_sn, die3_sn.
+# TYPE boss_smi_gpu_info gauge
+boss_smi_gpu_info{apu_version="6.4.11.15.636686",board_id="1001",bus_id="0000:0a:00.0",card_index="0",chip_type="GPGPU",die0_sn="0-0-0-000000",die1_sn="0-0-0-000000",die2_sn="0-0-0-000000",die3_sn="0-0-0-000000",name="BD100",soft_version="debug version"} 1
+# HELP boss_smi_inlet_temp inlet_temp
+# TYPE boss_smi_inlet_temp gauge
+boss_smi_inlet_temp{cardid="0"} 26
+# HELP boss_smi_link_width link_width
+# TYPE boss_smi_link_width gauge
+boss_smi_link_width{cardid="0"} 16
+# HELP boss_smi_name name
+# TYPE boss_smi_name gauge
+boss_smi_name{cardid="0"} 100
+# HELP boss_smi_outlet_temp outlet_temp
+# TYPE boss_smi_outlet_temp gauge
+boss_smi_outlet_temp{cardid="0"} 37
+# HELP boss_smi_pwr pwr
+# TYPE boss_smi_pwr gauge
+boss_smi_pwr{cardid="0"} 70.69
 # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
 go_gc_duration_seconds{quantile="0"} 0
@@ -17,46 +285,43 @@ go_gc_duration_seconds_sum 0
 go_gc_duration_seconds_count 0
 # HELP go_goroutines Number of goroutines that currently exist.
 # TYPE go_goroutines gauge
-go_goroutines 7
+go_goroutines 9
 # HELP go_info Information about the Go environment.
 # TYPE go_info gauge
-go_info{version="go1.16.5"} 1
+go_info{version="go1.18.1"} 1
 # HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
 # TYPE go_memstats_alloc_bytes gauge
-go_memstats_alloc_bytes 1.169224e+06
+go_memstats_alloc_bytes 2.648952e+06
 # HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
 # TYPE go_memstats_alloc_bytes_total counter
-go_memstats_alloc_bytes_total 1.169224e+06
+go_memstats_alloc_bytes_total 2.648952e+06
 # HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
 # TYPE go_memstats_buck_hash_sys_bytes gauge
-go_memstats_buck_hash_sys_bytes 1.44498e+06
+go_memstats_buck_hash_sys_bytes 4600
 # HELP go_memstats_frees_total Total number of frees.
 # TYPE go_memstats_frees_total counter
-go_memstats_frees_total 273
-# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
-# TYPE go_memstats_gc_cpu_fraction gauge
-go_memstats_gc_cpu_fraction 0
+go_memstats_frees_total 80
 # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
 # TYPE go_memstats_gc_sys_bytes gauge
-go_memstats_gc_sys_bytes 4.110176e+06
+go_memstats_gc_sys_bytes 3.579728e+06
 # HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
 # TYPE go_memstats_heap_alloc_bytes gauge
-go_memstats_heap_alloc_bytes 1.169224e+06
+go_memstats_heap_alloc_bytes 2.648952e+06
 # HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
 # TYPE go_memstats_heap_idle_bytes gauge
-go_memstats_heap_idle_bytes 6.397952e+07
+go_memstats_heap_idle_bytes 1.089536e+06
 # HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
 # TYPE go_memstats_heap_inuse_bytes gauge
-go_memstats_heap_inuse_bytes 2.637824e+06
+go_memstats_heap_inuse_bytes 2.678784e+06
 # HELP go_memstats_heap_objects Number of allocated objects.
 # TYPE go_memstats_heap_objects gauge
-go_memstats_heap_objects 6126
+go_memstats_heap_objects 18197
 # HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
 # TYPE go_memstats_heap_released_bytes gauge
-go_memstats_heap_released_bytes 6.397952e+07
+go_memstats_heap_released_bytes 1.089536e+06
 # HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
 # TYPE go_memstats_heap_sys_bytes gauge
-go_memstats_heap_sys_bytes 6.6617344e+07
+go_memstats_heap_sys_bytes 3.76832e+06
 # HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
 # TYPE go_memstats_last_gc_time_seconds gauge
 go_memstats_last_gc_time_seconds 0
@@ -65,205 +330,58 @@ go_memstats_last_gc_time_seconds 0
 go_memstats_lookups_total 0
 # HELP go_memstats_mallocs_total Total number of mallocs.
 # TYPE go_memstats_mallocs_total counter
-go_memstats_mallocs_total 6399
+go_memstats_mallocs_total 18277
 # HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
 # TYPE go_memstats_mcache_inuse_bytes gauge
-go_memstats_mcache_inuse_bytes 9600
+go_memstats_mcache_inuse_bytes 19200
 # HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
 # TYPE go_memstats_mcache_sys_bytes gauge
-go_memstats_mcache_sys_bytes 16384
+go_memstats_mcache_sys_bytes 31200
 # HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
 # TYPE go_memstats_mspan_inuse_bytes gauge
-go_memstats_mspan_inuse_bytes 46240
+go_memstats_mspan_inuse_bytes 55080
 # HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
 # TYPE go_memstats_mspan_sys_bytes gauge
-go_memstats_mspan_sys_bytes 49152
+go_memstats_mspan_sys_bytes 65280
 # HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
 # TYPE go_memstats_next_gc_bytes gauge
-go_memstats_next_gc_bytes 4.473924e+06
+go_memstats_next_gc_bytes 4.194304e+06
 # HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
 # TYPE go_memstats_other_sys_bytes gauge
-go_memstats_other_sys_bytes 885044
+go_memstats_other_sys_bytes 860648
 # HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
 # TYPE go_memstats_stack_inuse_bytes gauge
-go_memstats_stack_inuse_bytes 491520
+go_memstats_stack_inuse_bytes 425984
 # HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
 # TYPE go_memstats_stack_sys_bytes gauge
-go_memstats_stack_sys_bytes 491520
+go_memstats_stack_sys_bytes 425984
 # HELP go_memstats_sys_bytes Number of bytes obtained from system.
 # TYPE go_memstats_sys_bytes gauge
-go_memstats_sys_bytes 7.36146e+07
+go_memstats_sys_bytes 8.73576e+06
 # HELP go_threads Number of OS threads created.
 # TYPE go_threads gauge
-go_threads 8
-# HELP nvidia_gpu_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which nvidia_gpu_exporter was built.
-# TYPE nvidia_gpu_exporter_build_info gauge
-nvidia_gpu_exporter_build_info{branch="",goversion="go1.16.5",revision="",version=""} 1
-# HELP nvidia_smi_accounting_buffer_size accounting.buffer_size
-# TYPE nvidia_smi_accounting_buffer_size gauge
-nvidia_smi_accounting_buffer_size{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 4000
-# HELP nvidia_smi_accounting_mode accounting.mode
-# TYPE nvidia_smi_accounting_mode gauge
-nvidia_smi_accounting_mode{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_current_graphics_clock_hz clocks.current.graphics [MHz]
-# TYPE nvidia_smi_clocks_current_graphics_clock_hz gauge
-nvidia_smi_clocks_current_graphics_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 6e+06
-# HELP nvidia_smi_clocks_current_memory_clock_hz clocks.current.memory [MHz]
-# TYPE nvidia_smi_clocks_current_memory_clock_hz gauge
-nvidia_smi_clocks_current_memory_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1.6e+07
-# HELP nvidia_smi_clocks_current_sm_clock_hz clocks.current.sm [MHz]
-# TYPE nvidia_smi_clocks_current_sm_clock_hz gauge
-nvidia_smi_clocks_current_sm_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 6e+06
-# HELP nvidia_smi_clocks_current_video_clock_hz clocks.current.video [MHz]
-# TYPE nvidia_smi_clocks_current_video_clock_hz gauge
-nvidia_smi_clocks_current_video_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 5.4e+08
-# HELP nvidia_smi_clocks_max_graphics_clock_hz clocks.max.graphics [MHz]
-# TYPE nvidia_smi_clocks_max_graphics_clock_hz gauge
-nvidia_smi_clocks_max_graphics_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 2.28e+09
-# HELP nvidia_smi_clocks_max_memory_clock_hz clocks.max.memory [MHz]
-# TYPE nvidia_smi_clocks_max_memory_clock_hz gauge
-nvidia_smi_clocks_max_memory_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 7.751e+09
-# HELP nvidia_smi_clocks_max_sm_clock_hz clocks.max.sm [MHz]
-# TYPE nvidia_smi_clocks_max_sm_clock_hz gauge
-nvidia_smi_clocks_max_sm_clock_hz{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 2.28e+09
-# HELP nvidia_smi_clocks_throttle_reasons_active clocks_throttle_reasons.active
-# TYPE nvidia_smi_clocks_throttle_reasons_active gauge
-nvidia_smi_clocks_throttle_reasons_active{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 4
-# HELP nvidia_smi_clocks_throttle_reasons_applications_clocks_setting clocks_throttle_reasons.applications_clocks_setting
-# TYPE nvidia_smi_clocks_throttle_reasons_applications_clocks_setting gauge
-nvidia_smi_clocks_throttle_reasons_applications_clocks_setting{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_gpu_idle clocks_throttle_reasons.gpu_idle
-# TYPE nvidia_smi_clocks_throttle_reasons_gpu_idle gauge
-nvidia_smi_clocks_throttle_reasons_gpu_idle{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown clocks_throttle_reasons.hw_power_brake_slowdown
-# TYPE nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown gauge
-nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_hw_slowdown clocks_throttle_reasons.hw_slowdown
-# TYPE nvidia_smi_clocks_throttle_reasons_hw_slowdown gauge
-nvidia_smi_clocks_throttle_reasons_hw_slowdown{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown clocks_throttle_reasons.hw_thermal_slowdown
-# TYPE nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown gauge
-nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_supported clocks_throttle_reasons.supported
-# TYPE nvidia_smi_clocks_throttle_reasons_supported gauge
-nvidia_smi_clocks_throttle_reasons_supported{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 511
-# HELP nvidia_smi_clocks_throttle_reasons_sw_power_cap clocks_throttle_reasons.sw_power_cap
-# TYPE nvidia_smi_clocks_throttle_reasons_sw_power_cap gauge
-nvidia_smi_clocks_throttle_reasons_sw_power_cap{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1
-# HELP nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown clocks_throttle_reasons.sw_thermal_slowdown
-# TYPE nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown gauge
-nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_clocks_throttle_reasons_sync_boost clocks_throttle_reasons.sync_boost
-# TYPE nvidia_smi_clocks_throttle_reasons_sync_boost gauge
-nvidia_smi_clocks_throttle_reasons_sync_boost{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_compute_mode compute_mode
-# TYPE nvidia_smi_compute_mode gauge
-nvidia_smi_compute_mode{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_count count
-# TYPE nvidia_smi_count gauge
-nvidia_smi_count{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1
-# HELP nvidia_smi_display_active display_active
-# TYPE nvidia_smi_display_active gauge
-nvidia_smi_display_active{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_display_mode display_mode
-# TYPE nvidia_smi_display_mode gauge
-nvidia_smi_display_mode{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1
-# HELP nvidia_smi_driver_version driver_version
-# TYPE nvidia_smi_driver_version gauge
-nvidia_smi_driver_version{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 471.11
-# HELP nvidia_smi_encoder_stats_average_fps encoder.stats.averageFps
-# TYPE nvidia_smi_encoder_stats_average_fps gauge
-nvidia_smi_encoder_stats_average_fps{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_encoder_stats_average_latency encoder.stats.averageLatency
-# TYPE nvidia_smi_encoder_stats_average_latency gauge
-nvidia_smi_encoder_stats_average_latency{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_encoder_stats_session_count encoder.stats.sessionCount
-# TYPE nvidia_smi_encoder_stats_session_count gauge
-nvidia_smi_encoder_stats_session_count{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_enforced_power_limit_watts enforced.power.limit [W]
-# TYPE nvidia_smi_enforced_power_limit_watts gauge
-nvidia_smi_enforced_power_limit_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 250
-# HELP nvidia_smi_fan_speed_ratio fan.speed [%]
-# TYPE nvidia_smi_fan_speed_ratio gauge
-nvidia_smi_fan_speed_ratio{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0.38
-# HELP nvidia_smi_gpu_info A metric with a constant '1' value labeled by gpu uuid, name, driver_model_current, driver_model_pending, vbios_version, driver_version.
-# TYPE nvidia_smi_gpu_info gauge
-nvidia_smi_gpu_info{driver_model_current="WDDM",driver_model_pending="WDDM",driver_version="471.11",name="NVIDIA GeForce RTX 2080 SUPER",uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa",vbios_version="90.04.7a.40.73"} 1
-# HELP nvidia_smi_index index
-# TYPE nvidia_smi_index gauge
-nvidia_smi_index{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_inforom_oem inforom.oem
-# TYPE nvidia_smi_inforom_oem gauge
-nvidia_smi_inforom_oem{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1.1
-# HELP nvidia_smi_memory_free_bytes memory.free [MiB]
-# TYPE nvidia_smi_memory_free_bytes gauge
-nvidia_smi_memory_free_bytes{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 7.883194368e+09
-# HELP nvidia_smi_memory_total_bytes memory.total [MiB]
-# TYPE nvidia_smi_memory_total_bytes gauge
-nvidia_smi_memory_total_bytes{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 8.589934592e+09
-# HELP nvidia_smi_memory_used_bytes memory.used [MiB]
-# TYPE nvidia_smi_memory_used_bytes gauge
-nvidia_smi_memory_used_bytes{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 7.06740224e+08
-# HELP nvidia_smi_name name
-# TYPE nvidia_smi_name gauge
-nvidia_smi_name{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 2080
-# HELP nvidia_smi_pci_bus pci.bus
-# TYPE nvidia_smi_pci_bus gauge
-nvidia_smi_pci_bus{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 12
-# HELP nvidia_smi_pci_device pci.device
-# TYPE nvidia_smi_pci_device gauge
-nvidia_smi_pci_device{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_pci_device_id pci.device_id
-# TYPE nvidia_smi_pci_device_id gauge
-nvidia_smi_pci_device_id{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 7809
-# HELP nvidia_smi_pci_domain pci.domain
-# TYPE nvidia_smi_pci_domain gauge
-nvidia_smi_pci_domain{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_pci_sub_device_id pci.sub_device_id
-# TYPE nvidia_smi_pci_sub_device_id gauge
-nvidia_smi_pci_sub_device_id{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1.074074712e+09
-# HELP nvidia_smi_pcie_link_gen_current pcie.link.gen.current
-# TYPE nvidia_smi_pcie_link_gen_current gauge
-nvidia_smi_pcie_link_gen_current{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 3
-# HELP nvidia_smi_pcie_link_gen_max pcie.link.gen.max
-# TYPE nvidia_smi_pcie_link_gen_max gauge
-nvidia_smi_pcie_link_gen_max{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 3
-# HELP nvidia_smi_pcie_link_width_current pcie.link.width.current
-# TYPE nvidia_smi_pcie_link_width_current gauge
-nvidia_smi_pcie_link_width_current{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 16
-# HELP nvidia_smi_pcie_link_width_max pcie.link.width.max
-# TYPE nvidia_smi_pcie_link_width_max gauge
-nvidia_smi_pcie_link_width_max{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 16
-# HELP nvidia_smi_power_default_limit_watts power.default_limit [W]
-# TYPE nvidia_smi_power_default_limit_watts gauge
-nvidia_smi_power_default_limit_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 250
-# HELP nvidia_smi_power_draw_watts power.draw [W]
-# TYPE nvidia_smi_power_draw_watts gauge
-nvidia_smi_power_draw_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 28.07
-# HELP nvidia_smi_power_limit_watts power.limit [W]
-# TYPE nvidia_smi_power_limit_watts gauge
-nvidia_smi_power_limit_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 250
-# HELP nvidia_smi_power_management power.management
-# TYPE nvidia_smi_power_management gauge
-nvidia_smi_power_management{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 1
-# HELP nvidia_smi_power_max_limit_watts power.max_limit [W]
-# TYPE nvidia_smi_power_max_limit_watts gauge
-nvidia_smi_power_max_limit_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 350
-# HELP nvidia_smi_power_min_limit_watts power.min_limit [W]
-# TYPE nvidia_smi_power_min_limit_watts gauge
-nvidia_smi_power_min_limit_watts{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 105
-# HELP nvidia_smi_pstate pstate
-# TYPE nvidia_smi_pstate gauge
-nvidia_smi_pstate{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 8
-# HELP nvidia_smi_temperature_gpu temperature.gpu
-# TYPE nvidia_smi_temperature_gpu gauge
-nvidia_smi_temperature_gpu{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 34
-# HELP nvidia_smi_utilization_gpu_ratio utilization.gpu [%]
-# TYPE nvidia_smi_utilization_gpu_ratio gauge
-nvidia_smi_utilization_gpu_ratio{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
-# HELP nvidia_smi_utilization_memory_ratio utilization.memory [%]
-# TYPE nvidia_smi_utilization_memory_ratio gauge
-nvidia_smi_utilization_memory_ratio{uuid="df6e7a7c-7314-46f8-abc4-b88b36dcf3aa"} 0
+go_threads 7
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1024
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 13
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 1.0661888e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.68024503717e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.109950464e+09
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes 1.8446744073709552e+19
 # HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.
 # TYPE promhttp_metric_handler_requests_in_flight gauge
 promhttp_metric_handler_requests_in_flight 1
@@ -272,4 +390,3 @@ promhttp_metric_handler_requests_in_flight 1
 promhttp_metric_handler_requests_total{code="200"} 0
 promhttp_metric_handler_requests_total{code="500"} 0
 promhttp_metric_handler_requests_total{code="503"} 0
-```
