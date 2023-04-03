@@ -19,7 +19,7 @@ Flags:
       --boss-smi-command="boss-smi"
                             Path or command to be used for the boss-smi executable
       --query-field-names="AUTO"
-                            Comma-separated list of the query fields. You can find out possible fields by running `boss-smi --help-query-gpus`. The value `AUTO` will
+                            Comma-separated list of the query fields. You can find out possible fields by running `boss-smi --help-query-gpu`. The value `AUTO` will
                             automatically detect the fields to query.
       --log.level=info      Only log messages with the given severity or above. One of: [debug, info, warn, error]
       --log.format=logfmt   Output format of log messages. One of: [logfmt, json]

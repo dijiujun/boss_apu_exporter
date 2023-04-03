@@ -61,7 +61,7 @@ func main() {
 			Default(exporter.DefaultBossSmiCommand).String()
 		qFields = kingpin.Flag("query-field-names",
 			fmt.Sprintf("Comma-separated list of the query fields. "+
-				"You can find out possible fields by running `boss-smi --help-query-gpus`. "+
+				"You can find out possible fields by running `boss-smi --help-query-gpu`. "+
 				"The value `%s` will automatically detect the fields to query.", exporter.DefaultQField)).
 			Default(exporter.DefaultQField).String()
 	)
