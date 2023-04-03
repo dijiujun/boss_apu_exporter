@@ -206,7 +206,7 @@ func (e *GPUExporter) Collect(metricCh chan<- prometheus.Metric) {
 	for _, currentRow := range currentTable.Rows {
 		//uuid := strings.TrimPrefix(strings.ToLower(currentRow.QFieldToCells[uuidQField].RawValue), "gpu-")
 
-		cardid := currentRow.QFieldToCells[cardQField].RawValue
+		card_index := currentRow.QFieldToCells[cardQField].RawValue
 		softVersion := currentRow.QFieldToCells[softVersionQField].RawValue
 		boardID := currentRow.QFieldToCells[boardIDQField].RawValue
 		name := currentRow.QFieldToCells[nameQField].RawValue
@@ -223,7 +223,7 @@ func (e *GPUExporter) Collect(metricCh chan<- prometheus.Metric) {
 				driverVersion := currentRow.QFieldToCells[driverVersionQField].RawValue
 		*/
 		infoMetric := prometheus.MustNewConstMetric(e.gpuInfoDesc, prometheus.GaugeValue,
-			1, cardid, softVersion, boardID, name, chipType, apuVsersion,
+			1, card_index, softVersion, boardID, name, chipType, apuVsersion,
 			busid, die0SN, die1SN, die2SN, die3SN /*, driverModelCurrent,driverModelPending, vBiosVersion, driverVersion*/)
 		metricCh <- infoMetric
 
@@ -238,7 +238,7 @@ func (e *GPUExporter) Collect(metricCh chan<- prometheus.Metric) {
 				continue
 			}
 
-			metricCh <- prometheus.MustNewConstMetric(metricInfo.desc, metricInfo.MType, num, cardid)
+			metricCh <- prometheus.MustNewConstMetric(metricInfo.desc, metricInfo.MType, num, card_index)
 		}
 	}
 }
@@ -342,7 +342,7 @@ func BuildQFieldToMetricInfoMap(prefix string, qFieldtoRFieldMap map[QField]RFie
 
 func BuildMetricInfo(prefix string, rField RField) MetricInfo {
 	fqName, multiplier := BuildFQNameAndMultiplier(prefix, rField)
-	desc := prometheus.NewDesc(fqName, string(rField), []string{"cardid"}, nil)
+	desc := prometheus.NewDesc(fqName, string(rField), []string{"card_index"}, nil)
 
 	return MetricInfo{
 		desc:            desc,
