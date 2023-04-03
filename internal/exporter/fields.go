@@ -10,14 +10,25 @@ import (
 )
 
 const (
-	uuidQField               QField = "uuid"
-	nameQField               QField = "name"
-	driverModelCurrentQField QField = "driver_model.current"
+	/*uuidQField QField = "uuid"*/
+	cardQField        QField = "card_index"
+	nameQField        QField = "name"
+	softVersionQField QField = "soft_version"
+	apuVersionQField  QField = "apu_version"
+	boardIDQField     QField = "board_id"
+	chipTypeQField    QField = "chip_type"
+	busIDQField       QField = "bus_id"
+	die0SNQField      QField = "die0_sn"
+	die1SNQField      QField = "die1_sn"
+	die2SNQField      QField = "die2_sn"
+	die3SNQField      QField = "die3_sn"
+
+	/*driverModelCurrentQField QField = "driver_model.current"
 	driverModelPendingQField QField = "driver_model.pending"
 	vBiosVersionQField       QField = "vbios_version"
-	driverVersionQField      QField = "driver_version"
-	qFieldsAuto                     = "AUTO"
-	DefaultQField                   = qFieldsAuto
+	driverVersionQField      QField = "driver_version"*/
+	qFieldsAuto   = "AUTO"
+	DefaultQField = qFieldsAuto
 )
 
 var (
@@ -27,6 +38,106 @@ var (
 
 	//nolint:gochecknoglobals
 	fallbackQFieldToRFieldMap = map[QField]RField{
+		"timestamp":           "timestamp",
+		"card_index":          "card_index",
+		"bus_id":              "bus_id",
+		"link_width":          "link_width",
+		"soft_version":        "soft_version",
+		"board_id":            "board_id",
+		"cpld_version":        "cpld_version",
+		"name":                "name",
+		"chip_type":           "chip_type",
+		"apu_version":         "apu_version",
+		"pwr":                 "pwr",
+		"inlet_temp":          "inlet_temp",
+		"outlet_temp":         "outlet_temp",
+		"card_temp":           "card_temp",
+		"die0_sn":             "die0_sn",
+		"die0_cpu_usage_rate": "die0_cpu_usage_rate",
+		"die0_gpu_usage_rate": "die0_gpu_usage_rate",
+		"die0_bxlink_temp":    "die0_bxlink_temp",
+		"die0_gpgpu_temp":     "die0_gpgpu_temp",
+		"die0_cpu_temp":       "die0_cpu_temp",
+		"die0_ddr_temp":       "die0_ddr_temp",
+		"die0_decoder_temp":   "die0_decoder_temp",
+		"die0_sys_temp":       "die0_sys_temp",
+		"die0_slowdown_temp":  "die0_slowdown_temp",
+		"die0_shutdown_temp":  "die0_shutdown_temp",
+		"die0_gpu_clock":      "die0_gpu_clock",
+		"die0_cpu_clock":      "die0_cpu_clock",
+		"die0_ddr_clock":      "die0_ddr_clock",
+		"die0_mem_total":      "die0_mem_total",
+		"die0_mem_used":       "die0_mem_used",
+		"die0_mem_free":       "die0_mem_free",
+		"die0_gpu_mem_total":  "die0_gpu_mem_total",
+		"die0_gpu_mem_used":   "die0_gpu_mem_used",
+		"die0_gpu_mem_free":   "die0_gpu_mem_free",
+		"die0_phy_mem":        "die0_phy_mem",
+		"die1_sn":             "die1_sn",
+		"die1_cpu_usage_rate": "die1_cpu_usage_rate",
+		"die1_gpu_usage_rate": "die1_gpu_usage_rate",
+		"die1_bxlink_temp":    "die1_bxlink_temp",
+		"die1_gpgpu_temp":     "die1_gpgpu_temp",
+		"die1_cpu_temp":       "die1_cpu_temp",
+		"die1_ddr_temp":       "die1_ddr_temp",
+		"die1_decoder_temp":   "die1_decoder_temp",
+		"die1_sys_temp":       "die1_sys_temp",
+		"die1_slowdown_temp":  "die1_slowdown_temp",
+		"die1_shutdown_temp":  "die1_shutdown_temp",
+		"die1_gpu_clock":      "die1_gpu_clock",
+		"die1_cpu_clock":      "die1_cpu_clock",
+		"die1_ddr_clock":      "die1_ddr_clock",
+		"die1_mem_total":      "die1_mem_total",
+		"die1_mem_used":       "die1_mem_used",
+		"die1_mem_free":       "die1_mem_free",
+		"die1_gpu_mem_total":  "die1_gpu_mem_total",
+		"die1_gpu_mem_used":   "die1_gpu_mem_used",
+		"die1_gpu_mem_free":   "die1_gpu_mem_free",
+		"die1_phy_mem":        "die1_phy_mem",
+		"die2_sn":             "die2_sn",
+		"die2_cpu_usage_rate": "die2_cpu_usage_rate",
+		"die2_gpu_usage_rate": "die2_gpu_usage_rate",
+		"die2_bxlink_temp":    "die2_bxlink_temp",
+		"die2_gpgpu_temp":     "die2_gpgpu_temp",
+		"die2_cpu_temp":       "die2_cpu_temp",
+		"die2_ddr_temp":       "die2_ddr_temp",
+		"die2_decoder_temp":   "die2_decoder_temp",
+		"die2_sys_temp":       "die2_sys_temp",
+		"die2_slowdown_temp":  "die2_slowdown_temp",
+		"die2_shutdown_temp":  "die2_shutdown_temp",
+		"die2_gpu_clock":      "die2_gpu_clock",
+		"die2_cpu_clock":      "die2_cpu_clock",
+		"die2_ddr_clock":      "die2_ddr_clock",
+		"die2_mem_total":      "die2_mem_total",
+		"die2_mem_used":       "die2_mem_used",
+		"die2_mem_free":       "die2_mem_free",
+		"die2_gpu_mem_total":  "die2_gpu_mem_total",
+		"die2_gpu_mem_used":   "die2_gpu_mem_used",
+		"die2_gpu_mem_free":   "die2_gpu_mem_free",
+		"die2_phy_mem":        "die2_phy_mem",
+		"die3_sn":             "die3_sn",
+		"die3_cpu_usage_rate": "die3_cpu_usage_rate",
+		"die3_gpu_usage_rate": "die3_gpu_usage_rate",
+		"die3_bxlink_temp":    "die3_bxlink_temp",
+		"die3_gpgpu_temp":     "die3_gpgpu_temp",
+		"die3_cpu_temp":       "die3_cpu_temp",
+		"die3_ddr_temp":       "die3_ddr_temp",
+		"die3_decoder_temp":   "die3_decoder_temp",
+		"die3_sys_temp":       "die3_sys_temp",
+		"die3_slowdown_temp":  "die3_slowdown_temp",
+		"die3_shutdown_temp":  "die3_shutdown_temp",
+		"die3_gpu_clock":      "die3_gpu_clock",
+		"die3_cpu_clock":      "die3_cpu_clock",
+		"die3_ddr_clock":      "die3_ddr_clock",
+		"die3_mem_total":      "die3_mem_total",
+		"die3_mem_used":       "die3_mem_used",
+		"die3_mem_free":       "die3_mem_free",
+		"die3_gpu_mem_total":  "die3_gpu_mem_total",
+		"die3_gpu_mem_used":   "die3_gpu_mem_used",
+		"die3_gpu_mem_free":   "die3_gpu_mem_free",
+		"die3_phy_mem":        "die3_phy_mem",
+	}
+	/*fallbackQFieldToRFieldMap = map[QField]RField{
 		"timestamp":                         "timestamp",
 		"driver_version":                    "driver_version",
 		"count":                             "count",
@@ -142,7 +253,7 @@ var (
 		"clocks.max.memory":                                   "clocks.max.memory [MHz]",
 		"mig.mode.current":                                    "mig.mode.current",
 		"mig.mode.pending":                                    "mig.mode.pending",
-	}
+	}*/
 )
 
 func ParseAutoQFields(bossSmiCommand string, command runCmd) ([]QField, error) {

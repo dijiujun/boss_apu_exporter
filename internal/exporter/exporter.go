@@ -27,8 +27,8 @@ type RField string
 type runCmd func(cmd *exec.Cmd) error
 
 const (
-	DefaultPrefix           = "boss_smi"
-	DefaultBossSmiCommand   = "boss-smi"
+	DefaultPrefix         = "boss_smi"
+	DefaultBossSmiCommand = "boss-smi"
 
 	floatBitSize = 64
 )
@@ -41,12 +41,23 @@ var (
 
 	//nolint:gochecknoglobals
 	requiredFields = []requiredField{
-		{qField: uuidQField, label: "uuid"},
+		/*{{qField: uuidQField, label: "uuid"},
 		{qField: nameQField, label: "name"},
-		{qField: driverModelCurrentQField, label: "driver_model_current"},
+		qField: driverModelCurrentQField, label: "driver_model_current"},
 		{qField: driverModelPendingQField, label: "driver_model_pending"},
 		{qField: vBiosVersionQField, label: "vbios_version"},
-		{qField: driverVersionQField, label: "driver_version"},
+		{qField: driverVersionQField, label: "driver_version"},*/
+		{qField: cardQField, label: "card_index"},
+		{qField: softVersionQField, label: "soft_version"},
+		{qField: boardIDQField, label: "board_id"},
+		{qField: nameQField, label: "name"},
+		{qField: chipTypeQField, label: "chip_type"},
+		{qField: apuVersionQField, label: "apu_version"},
+		{qField: busIDQField, label: "bus_id"},
+		{qField: die0SNQField, label: "die0_sn"},
+		{qField: die1SNQField, label: "die1_sn"},
+		{qField: die2SNQField, label: "die2_sn"},
+		{qField: die3SNQField, label: "die3_sn"},
 	}
 
 	//nolint:gochecknoglobals
@@ -136,7 +147,11 @@ func buildQFieldToRFieldMap(logger log.Logger, qFieldsRaw string,
 
 		qFields = parsed
 	}
-
+	/*
+		for i := range qFields {
+			fmt.Println(i, qFields[i])
+		}
+	*/
 	_, resultTable, err := scrape(qFields, bossSmiCommand, command)
 
 	var rFields []RField
@@ -189,16 +204,27 @@ func (e *GPUExporter) Collect(metricCh chan<- prometheus.Metric) {
 	}
 
 	for _, currentRow := range currentTable.Rows {
-		uuid := strings.TrimPrefix(strings.ToLower(currentRow.QFieldToCells[uuidQField].RawValue), "gpu-")
-		name := currentRow.QFieldToCells[nameQField].RawValue
-		driverModelCurrent := currentRow.QFieldToCells[driverModelCurrentQField].RawValue
-		driverModelPending := currentRow.QFieldToCells[driverModelPendingQField].RawValue
-		vBiosVersion := currentRow.QFieldToCells[vBiosVersionQField].RawValue
-		driverVersion := currentRow.QFieldToCells[driverVersionQField].RawValue
+		//uuid := strings.TrimPrefix(strings.ToLower(currentRow.QFieldToCells[uuidQField].RawValue), "gpu-")
 
+		cardid := currentRow.QFieldToCells[cardQField].RawValue
+		softVersion := currentRow.QFieldToCells[softVersionQField].RawValue
+		boardID := currentRow.QFieldToCells[boardIDQField].RawValue
+		name := currentRow.QFieldToCells[nameQField].RawValue
+		chipType := currentRow.QFieldToCells[chipTypeQField].RawValue
+		apuVsersion := currentRow.QFieldToCells[apuVersionQField].RawValue
+		busid := currentRow.QFieldToCells[busIDQField].RawValue
+		die0SN := currentRow.QFieldToCells[die0SNQField].RawValue
+		die1SN := currentRow.QFieldToCells[die1SNQField].RawValue
+		die2SN := currentRow.QFieldToCells[die2SNQField].RawValue
+		die3SN := currentRow.QFieldToCells[die3SNQField].RawValue
+		/*		driverModelCurrent := currentRow.QFieldToCells[driverModelCurrentQField].RawValue
+				driverModelPending := currentRow.QFieldToCells[driverModelPendingQField].RawValue
+				vBiosVersion := currentRow.QFieldToCells[vBiosVersionQField].RawValue
+				driverVersion := currentRow.QFieldToCells[driverVersionQField].RawValue
+		*/
 		infoMetric := prometheus.MustNewConstMetric(e.gpuInfoDesc, prometheus.GaugeValue,
-			1, uuid, name, driverModelCurrent,
-			driverModelPending, vBiosVersion, driverVersion)
+			1, cardid, softVersion, boardID, name, chipType, apuVsersion,
+			busid, die0SN, die1SN, die2SN, die3SN /*, driverModelCurrent,driverModelPending, vBiosVersion, driverVersion*/)
 		metricCh <- infoMetric
 
 		for _, currentCell := range currentRow.Cells {
@@ -212,7 +238,7 @@ func (e *GPUExporter) Collect(metricCh chan<- prometheus.Metric) {
 				continue
 			}
 
-			metricCh <- prometheus.MustNewConstMetric(metricInfo.desc, metricInfo.MType, num, uuid)
+			metricCh <- prometheus.MustNewConstMetric(metricInfo.desc, metricInfo.MType, num, cardid)
 		}
 	}
 }
@@ -316,7 +342,7 @@ func BuildQFieldToMetricInfoMap(prefix string, qFieldtoRFieldMap map[QField]RFie
 
 func BuildMetricInfo(prefix string, rField RField) MetricInfo {
 	fqName, multiplier := BuildFQNameAndMultiplier(prefix, rField)
-	desc := prometheus.NewDesc(fqName, string(rField), []string{"uuid"}, nil)
+	desc := prometheus.NewDesc(fqName, string(rField), []string{"cardid"}, nil)
 
 	return MetricInfo{
 		desc:            desc,
